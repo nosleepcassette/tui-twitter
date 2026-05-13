@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do
+  DIR="$(cd -P "$(dirname "$SOURCE")" && pwd)"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ "$SOURCE" != /* ]] && SOURCE="$DIR/$SOURCE"
+done
+SCRIPT_DIR="$(cd -P "$(dirname "$SOURCE")" && pwd)"
+
+if command -v bun >/dev/null 2>&1; then
+  exec bun "${SCRIPT_DIR}/src/index.ts" "$@"
+fi
+
+if [ -x "$HOME/.bun/bin/bun" ]; then
+  exec "$HOME/.bun/bin/bun" "${SCRIPT_DIR}/src/index.ts" "$@"
+fi
+
+echo "tui-twitter requires Bun at runtime." >&2
+echo "Install Bun from https://bun.sh/ and try again." >&2
+exit 1

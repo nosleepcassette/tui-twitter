@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+
+# dependencies
+node_modules/
+
+# build output
+dist/
+
+# local auth cache (if stored in repo)
+.tuitter/
+oauth-token.json
+
+# logs / OS files
+*.log
+.DS_Store
