@@ -4,7 +4,9 @@ Terminal UI client for Twitter/X. Interactive timeline browser plus a headless C
 
 Auth uses cookie extraction from your live browser session — no OAuth app credentials required.
 
-![tuitter screenshot](tuitter.png)
+![tui-twitter timeline](tui-twitter.png)
+
+![tui-twitter post detail](tui-twitter2.png)
 
 ---
 
