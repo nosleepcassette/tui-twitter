@@ -45,8 +45,10 @@ export class XApiError extends Error {
   }
 }
 
-const DEFAULT_BEARER_TOKEN =
-  "TWITTER_BEARER_TOKEN_PLACEHOLDER";
+// X's public web-app bearer token. Not a personal secret — baked into twitter.com's
+// own JS bundle. Removed from source to avoid scanner warnings.
+// Set TWITTER_BEARER_TOKEN in .env, or the tool extracts it from your browser session.
+const DEFAULT_BEARER_TOKEN = process.env.TWITTER_BEARER_TOKEN ?? "";
 const TWITTER_API_BASE = "https://x.com/i/api/graphql";
 
 const FALLBACK_QUERY_IDS = {
